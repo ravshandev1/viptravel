@@ -1,0 +1,365 @@
+{% load static %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="facebook-domain-verification" content="v1gzvh0e6hwd8zxt6qdreybqm8g1mr"/>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1047995970147132');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=1047995970147132&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" type="image/gif" href="{% static 'img/static/logo-black.png' %}">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VIP Travel Uzbekistan</title>
+
+
+    <!-- Rus tili uchun meta teglar -->
+    <meta name="title" content="VIP Travel Uzbekistan - Туры по всему миру">
+    <meta name="description"
+          content="Организуем незабываемые туры за границу из Узбекистана. Надежное туристическое агентство для комфортных и безопасных путешествий.">
+    <meta name="keywords"
+          content="VIP Travel Uzbekistan, туры из Узбекистана, путешествия за границу, туристическое агентство, туры, отдых за рубежом, Узбекистан туризм">
+
+
+    <!-- Favicons -->
+    <link href="{% static 'img/static/logo-black.png' %}" rel="icon">
+    <link href="{% static 'img/static/logo-black.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/swiper/swiper-bundle.min.css' %}">
+
+</head>
+
+<body class="bg-black">
+
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center fixed-top bg-black">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="." class="logo d-flex align-items-center">
+            <img class="img-blue " src="{% static 'img/static/viplogo.png' %}" alt="TravelPlus Logo">
+        </a>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li class="dropdown lang"><a href="{% url 'set-language' 'ru' %}"><img class="img-blue "
+                                                                                       src="{% static 'img/static/lang-ru.png' %}"
+                                                                                       alt="TravelPlus Logo"></a>
+                    <a href="{% url 'set-language' 'uz' %}"><img class="img-blue "
+                                                                 src="{% static 'img/static/lang-uz.png' %}"
+                                                                 alt="TravelPlus Logo"></a>
+                </li>
+                <li><a class="get-a-quote" href="tel:{{ contact.phone }}">{% trans 'Контакт' %}</a></li>
+            </ul>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+<!-- End Header -->
+
+<!-- ======= Features Section ======= -->
+<section id="tours" class="features">
+    <div class="container ">
+        <div class="section-header">
+            <span>{% trans 'ТУРЫ' %}</span>
+            <h2>{% trans 'ТУРЫ' %}</h2>
+        </div>
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+            {% for i in tours %}
+                <div class="col-12 col-md-4 " data-aos="fade-up">
+                    <div class="card features__card" data-bs-toggle="modal" data-bs-target="#tourModal">
+                        <p class="card-text position-absolute top-4 right-4 end-0 btn-tour text-white p-2">{{ i.price }}</p>
+                        <img src="{{ i.image.url }}" class="card-img-top" alt="Tashkent Tour">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <h5 class="card-title">{{ i.name }}</h5>
+                            <button type="button" class="btn btn-tour"><i class="bi bi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section><!-- End Features Section -->
+
+<!-- ======= New Modal for Tour Inquiry ======= -->
+<div class="modal fade" id="tourModal" tabindex="-1" aria-labelledby="tourModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: 1px solid #a89663">
+                <h5 class="title" id="tourModalLabel">{% trans 'Запрос на тур' %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="tourForm" action="." method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label description">{% trans 'Имя' %}</label>
+                        <input name="name" type="text" class="form-control" id="nameInput"
+                               placeholder="{% trans 'Введите ваше имя' %}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneInput" class="form-label">{% trans 'Телефонный номер' %}</label>
+                        <input name="phone" type="tel" class="form-control" id="phoneInput"
+                               placeholder="{% trans 'Введите ваш номер телефона' %}"
+                               required>
+                    </div>
+                    <button type="submit" class="btn btn-tour w-100">{% trans 'Отправить запрос' %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section><!-- End Hero Section -->
+<main id="main">
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+        <div class="container">
+            <div class="row gy-4">
+                {% for i in advantages %}
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up"
+                         data-aos-delay="{{ forloop.counter0 }}00">
+                        <div class="icon flex-shrink-0 "><img class="w-100 h-100 object-fit-contain"
+                                                              src="{{ i.image.url }}" alt="Travel Image"></div>
+                        <div>
+                            <h4 class="title">{{ i.name }}</h4>
+                            <p class="description">{{ i.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4 align-items-center">
+                <div class="col-lg-6 order-lg-last order-first about-img">
+                    <img src="{{ about.image.url }}" class="img-fluid" alt="TravelPlus Image">
+                </div>
+                <div class="col-lg-6 content order-last  order-lg-first">
+                    <div class="section-header">
+                        <span>{% trans 'О НАС' %}</span>
+                        <h2>{% trans 'О НАС' %}</h2>
+                    </div>
+                    <p>{{ about.text }}</p>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Us Section -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ваш запрос принят ожидайте мы свяжемся</h1>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="call-to-action-2" class="call-to-action bg-blue stats-counter position-relative">
+        <!--          <img class="w-full !h-full call-to-action-2-image position-absolute top-0 left-0 z-1 object-fit-cover " src="./assets/img/static/banner-bg2.jpg" alt="Travel Image">-->
+        <div class="container">
+            <div class="row gy-4 position-relative z-3" data-aos="fade-up" data-aos-delay="400">
+
+                <div class="col-lg-3 col-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ about.clients }}"
+                              data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <p>{% trans 'Клиенты' %}</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ about.progress }}"
+                              data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <p>{% trans 'Достижения' %}</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ tours.count }}"
+                              data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <p>{% trans 'Туры' %}</p>
+                    </div>
+                </div><!-- End Stats Item -->
+
+                <div class="col-lg-3 col-6">
+                    <div class="stats-item text-center w-100 h-100">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ about.experience }}"
+                              data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <p>{% trans 'Опыт (год)' %}</p>
+                    </div>
+                </div><!-- End Stats Item -->
+            </div>
+        </div>
+    </section><!-- End Testimonials Section -->
+
+    <section class="section-swiper">
+        <div class="container">
+            <div class="section-header">
+                <span>{% trans 'Вознаграждение' %}</span>
+                <h2>{% trans 'Вознаграждение' %}</h2>
+            </div>
+            <div class="swiper galerySwiper">
+                <div class="swiper-wrapper">
+                    {% for i in awards %}
+                        <div class="swiper-slide">
+                            <img src="{{ i.image.url }}" class="img-fluid" alt="TravelPlus Image">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="container mt-4">
+        <div href="" class="d-flex flex-column  flex-md-row justify-content-between mb-5 gap-4">
+            <a href="{{ contact.link }}" class="footer-item d-flex">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                    <h4>{% trans 'Местоположение' %}:</h4>
+                    <p>{{ contact.address }}</p>
+                </div>
+            </a><!-- End Info Item -->
+
+            <a href="mailto:{{ contact.email }}" class="footer-item d-flex">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                    <h4>{% trans 'Эл. адрес' %}:</h4>
+                    <p>{{ contact.email }}</p>
+                </div>
+            </a><!-- End Info Item -->
+
+            <a href="tel:{{ contact.phone }}" class="footer-item d-flex ">
+                <i class="bi bi-phone flex-shrink-0"></i>
+                <div>
+                    <h4>{% trans 'Вызов' %}:</h4>
+                    <p><span>{{ contact.phone }}</span></p>
+                </div>
+            </a><!-- End Info Item -->
+        </div>
+        <div class="copyright">
+            &copy; {% trans 'Авторские права' %}
+            <strong><span>Viptravel</span></strong>. {% trans 'Все права защищены' %}
+        </div>
+        <div class="credits">
+            {% trans 'Разработка сайта' %} - <a target="_blank" href="https://abduganiev.uz/">Abduganiev Technology</a>
+        </div>
+    </div>
+
+</footer><!-- End Footer -->
+<!-- End Footer -->
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script>
+    var swiper = new Swiper(".galerySwiper", {
+        slidesPerView: 1.5,
+        spaceBetween: 40,
+        centered: true,
+        centeredSlides: true,
+        loop: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 2.1
+            },
+            1024: {
+                spaceBetween: 50,
+                slidesPerView: 2.1
+
+            }
+        },
+        autoplay: {
+            delay: 5000, // Set the delay in milliseconds (e.g., 5000 for 5 seconds)
+            disableOnInteraction: false, // Allow navigation while autoplay is active
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+</body>
+</html>

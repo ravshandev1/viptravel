@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-26 19:50+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/index.html:67
+msgid "Контакт"
+msgstr "Aloqa"
+
+#: templates/index.html:79 templates/index.html:80
+msgid "ТУРЫ"
+msgstr "Ekskursiyalar"
+
+#: templates/index.html:104
+msgid "Запрос на тур"
+msgstr "Tur so'rovi"
+
+#: templates/index.html:111
+msgid "Имя"
+msgstr "Ism"
+
+#: templates/index.html:113
+msgid "Введите ваше имя"
+msgstr "Ismingizni kiriting"
+
+#: templates/index.html:116
+msgid "Телефонный номер"
+msgstr "Telefon raqami"
+
+#: templates/index.html:118
+msgid "Введите ваш номер телефона"
+msgstr "Telefon raqamingizni kiriting"
+
+#: templates/index.html:121
+msgid "Отправить запрос"
+msgstr "So'rov yuboring"
+
+#: templates/index.html:159 templates/index.html:160
+msgid "О НАС"
+msgstr "BIZ HAQIMIZDA"
+
+#: templates/index.html:196
+msgid "Клиенты"
+msgstr "Mijozlar"
+
+#: templates/index.html:205
+msgid "Достижения"
+msgstr "Yutuqlar"
+
+#: templates/index.html:214
+msgid "Туры"
+msgstr "Ekskursiyalar"
+
+#: templates/index.html:223
+msgid "Опыт (год)"
+msgstr "Tajriba (yil)"
+
+#: templates/index.html:233 templates/index.html:234
+msgid "Вознаграждение"
+msgstr "Mukofot"
+
+#: templates/index.html:260
+msgid "Местоположение"
+msgstr "Joylashuv"
+
+#: templates/index.html:268
+msgid "Эл. адрес"
+msgstr "Elektron pochta manzil"
+
+#: templates/index.html:276
+msgid "Вызов"
+msgstr "Qiyinchilik"
+
+#: templates/index.html:282
+msgid "Авторские права"
+msgstr "Mualliflik huquqi"
+
+#: templates/index.html:283
+msgid "Все права защищены"
+msgstr "Barcha huquqlar himoyalangan"
+
+#: templates/index.html:286
+msgid "Разработка сайта"
+msgstr "Saytni ishlab chiqish"
