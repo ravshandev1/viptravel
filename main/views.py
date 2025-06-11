@@ -10,8 +10,8 @@ class AboutList(ListAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
 
-    def get(self, request, *args, **kwargs):
-        return Response(AboutSerializer(About.objects.first()).data)
+    # def get(self, request, *args, **kwargs):
+    #     return Response(AboutSerializer(About.objects.first()).data)
 
 
 class AdvantageList(ListAPIView):
@@ -28,8 +28,8 @@ class ContactList(ListAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
 
-    def get(self, request, *args, **kwargs):
-        return Response(ContactSerializer(Contact.objects.first()).data)
+    # def get(self, request, *args, **kwargs):
+    #     return Response(ContactSerializer(Contact.objects.first()).data)
 
 
 class TourList(ListAPIView):
@@ -43,9 +43,11 @@ class LeadCreate(CreateAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        tour_id = request.data.get('tour_id')
         name = request.data.get("name")
         phone = request.data.get("phone")
-        send_telegram_message(name, phone)
+        tour = Tour.objects.filter(id=tour_id).first()
+        send_telegram_message(name, phone, tour.name)
         return Response(serializer.data, status=201)
 
 
@@ -53,8 +55,8 @@ BOT_TOKEN = '7419830226:AAGIyVjLFm8AA_eo6D25Bf9ht7CD6iiw5pk'
 CHAT_ID = '-1002164984527'
 
 
-def send_telegram_message(name, phone):
-    text = f"📥 Yangi so'rov:\n👤 Ism: {name}\n📞 Telefon: {phone}"
+def send_telegram_message(name, phone, tour_name = None):
+    text = f"📥 Yangi so'rov:\n👤 Ism: {name}\n📞 Telefon: {phone}\nTur: {tour_name}"
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage'
     payload = {
         'chat_id': CHAT_ID,
